@@ -1,0 +1,17 @@
+---
+- name: install paquete
+  hosts: rhel8
+  become: yes
+
+  vars:
+    var_pkg: httpd
+
+  tasks:
+    - name: print out var_pkg
+      debug:
+        msg: "{{ var_pkg }}"
+
+    - name: package is present
+      yum:
+       name: "{{ var_pkg }}"
+       state: latest

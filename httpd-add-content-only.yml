@@ -1,0 +1,10 @@
+---
+- name: Add index.html on http
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: latest index.html file is present
+      template:
+        src: files/index.html
+        dest: /var/www/html/

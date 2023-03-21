@@ -1,0 +1,5 @@
+ - name: Stop EDA demo check
+   hosts: all
+   tasks:
+    - name: Stop EDA demo check
+      script: sh /root/demo-eda/stop_eda_demo.sh

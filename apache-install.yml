@@ -2,6 +2,7 @@
 - name: install and start apache
   hosts: all
   become: yes
+  gather_facts: no
 
   tasks:
     - name: httpd package is present

@@ -1,0 +1,17 @@
+
+# Conexión via API
+
+ACCOUNT=admin
+PASSWORD=redhat01
+TOWER_URL=192.168.24.204
+
+# Sacamos el listado de job templates --> sirve para identificar el ID del job template
+curl --silent -u "${ACCOUNT}:${PASSWORD}" https://${TOWER_URL}/api/v2/job_templates/ --write-out "\n%{http_code}\n" | jq .results
+
+
+# Sacamos la info de un job template en particular
+ID=23
+curl -k --silent -u "${ACCOUNT}:${PASSWORD}" -X GET https://${TOWER_URL}/api/v2/job_templates/${ID}/launch/ --write-out "\n%{http_code}\n" | jq .
+
+# Mandamos a ejecutar el jobtemplate
+curl -k --silent -u "${ACCOUNT}:${PASSWORD}" -X POST https://${TOWER_URL}/api/v2/job_templates/${ID}/launch/ --write-out "\n%{http_code}\n" | jq .

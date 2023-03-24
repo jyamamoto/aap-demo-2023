@@ -1,5 +1,6 @@
  - name: Start EDA demo check
    hosts: all
+  
    tasks:
     - name: Start EDA demo check
       shell: sh /root/demo-eda/start_eda_demo.sh

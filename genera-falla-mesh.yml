@@ -8,3 +8,8 @@
     ansible.builtin.systemd:
       name: firewalld.service
       state: started
+  
+  - name: Restart service receptor.service
+    ansible.builtin.systemd:
+      name: receptor.service
+      state: restarted

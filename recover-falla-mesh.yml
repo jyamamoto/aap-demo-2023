@@ -1,0 +1,10 @@
+---
+- name: Recupera de falla simulada de conectividad al Remote Node desde Mendoza
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Recupera conectividad remote node Bahia Blanca
+    ansible.builtin.systemd:
+      name: firewalld.service
+      state: stopped

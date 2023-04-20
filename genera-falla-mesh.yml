@@ -1,0 +1,10 @@
+---
+- name: Genera falla simulada de conectividad al Remote Node desde Mendoza
+  hosts: all
+  become: yes
+
+  tasks:
+  - name: Simula falla remote node Bahia Blanca
+    ansible.builtin.systemd:
+      name: firewalld.service
+      state: started

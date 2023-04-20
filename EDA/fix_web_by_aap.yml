@@ -1,0 +1,35 @@
+---
+- name: Site Down
+  hosts: all
+  gather_facts: false
+  become: true
+  
+  tasks:
+    - debug:
+        msg: "Website is down!"
+
+    # Llamo vía api al job de AAP
+    - name: Site Recovery Job 
+      ansible.builtin.uri:
+        url: https://192.168.24.204/api/v2/job_templates/23/launch/
+        user: admin
+        password: redhat01
+        force_basic_auth: true
+        method: POST
+        validate_certs: false 
+        status_code: 201
+
+    - name: Wait for Website to be ready
+      wait_for:
+        port: 80
+        delay: 10
+
+#    - name: replace index.html 
+#      template:
+#        src: /root/demo-eda/files/index.html
+#        dest: /var/www/html/
+#
+#    - name: startd httpd service
+#      service:
+#        name: httpd
+#        state: started

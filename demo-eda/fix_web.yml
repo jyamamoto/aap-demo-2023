@@ -1,0 +1,19 @@
+---
+- name: Site Down
+  hosts: all
+  gather_facts: false
+  become: true
+  
+  tasks:
+    - debug:
+        msg: "Website is down!"
+
+    - name: replace index.html 
+      template:
+        src: /root/demo-eda/files/index.html
+        dest: /var/www/html/
+
+    - name: startd httpd service
+      service:
+        name: httpd
+        state: started

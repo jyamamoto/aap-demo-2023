@@ -1,0 +1,20 @@
+---
+- name: Site Down
+  hosts: localhost
+  gather_facts: false
+  become: true
+  
+  tasks:
+    - debug:
+        msg: "Website is down!"
+
+    # Llamo vía api al job de AAP
+    - name: call aap job to site recovery 
+      uri:
+        url: https://192.168.24.204/api/v2/job_templates/23/launch/
+        user: admin
+        password: redhat01
+        force_basic_auth: true
+        method: POST
+        validate_certs: false 
+        status_code: 201

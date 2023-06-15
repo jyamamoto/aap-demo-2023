@@ -6,7 +6,8 @@
   - playbook_sensitive_data.yml
 
   collections:
-    - redhat.rhel_idm
+    #- redhat.rhel_idm
+    - freeipa.ansible_freeipa
   
   roles:
   - role: ipaclient

@@ -1,5 +1,5 @@
 collections:
 #- name: redhat.rhel_idm
-- name: ansible_freeipa
+- name: freeipa.ansible_freeipa
 
 #

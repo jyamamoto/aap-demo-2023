@@ -1,0 +1,3 @@
+[ipaclients:vars]
+ipaadmin_principal=admin
+ipaadmin_password=redhat01

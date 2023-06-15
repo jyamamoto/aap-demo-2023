@@ -1,0 +1,10 @@
+---
+- name: Playbook to configure IPA clients with username/password
+  hosts: ipaclients
+  become: all
+  vars_files:
+  - playbook_sensitive_data.yml
+
+  roles:
+  - role: ipaclient
+    state: present

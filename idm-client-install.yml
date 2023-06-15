@@ -5,6 +5,9 @@
   vars_files:
   - playbook_sensitive_data.yml
 
+  collections:
+    - redhat.rhel_idm
+  
   roles:
   - role: ipaclient
     state: present
